@@ -1,0 +1,41 @@
+<!-- Traversing the DOM -->
+ 
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Optional CSS styles */
+    .highlight {
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <div id="parentElementId">
+    <p>First Child</p>
+    <p>Second Child</p>
+    <p>Third Child</p>
+  </div>
+  <script>
+    const parentElement = document.getElementById('parentElementId');
+    const firstChild = parentElement.firstElementChild;
+    const lastChild = parentElement.lastElementChild;
+    const siblingElement = firstChild.nextElementSibling;
+
+    firstChild.classList.add('highlight');
+    lastChild.classList.add('highlight');
+    siblingElement.classList.add('highlight');
+  </script>
+</body>
+</html>
+
+<!-- In this HTML code, there is a <div> element with the id attribute set to 'parentElementId'. Inside the <div>, there are three <p> elements representing child elements. The optional CSS styles are provided to give the highlighted elements a visual representation (yellow background color).
+
+The JavaScript code inside the <script> tag targets the element with the specified id ('parentElementId') and performs the following operations:
+
+firstElementChild retrieves the first child element of the parent element.
+lastElementChild retrieves the last child element of the parent element.
+nextElementSibling retrieves the sibling element of the first child element.
+After obtaining the respective elements, the code applies the 'highlight' class to each of them using the classList.add() method.
+
+You can copy and paste this HTML code into an HTML file and open it in a web browser to see the effect of the JavaScript code. The first child, last child, and sibling element will be visually highlighted according to the applied CSS styles. Feel free to modify the content or structure of the parent element to test different scenarios. -->

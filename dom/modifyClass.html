@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Optional CSS styles */
+    .newClass {
+      color: blue;
+    }
+    .oldClass {
+      text-decoration: line-through;
+    }
+    .active {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+    <!-- modify class -->
+  <div id="elementId" class="oldClass">Hello, World!</div>
+  <script>
+    const element = document.getElementById('elementId');
+    element.classList.add('newClass');
+    element.classList.remove('oldClass');
+    element.classList.toggle('active');
+  </script>
+</body>
+</html>
+    

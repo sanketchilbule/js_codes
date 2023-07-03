@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Horoscope API Example</title>
+
+</head>
+<body>
+  <h1>Horoscope</h1>
+  <div id="data-container"></div>
+
+  <button onclick="fetchHoroscope()">Fetch Horoscope</button>
+  <script>
+    function fetchHoroscope() {
+      const dataContainer = document.getElementById('data-container');
+
+      fetch('https://jsonplaceholder.typicode.com/posts')
+        .then(response => response.json())
+        .then(data => {
+        //   dataContainer.innerText = data.id;
+        console.log("data",data.id)
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          dataContainer.innerText = 'Failed to fetch horoscope.';
+        });
+    }
+  </script>
+</body>
+</html>

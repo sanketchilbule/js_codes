@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position elements in js dynamically</title>
+
+    <style>
+        /* Optional CSS styles */
+        #elementId {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="elementId">Hello, World!</div>
+    <script>
+        //  Adjusting Element Position
+        const element = document.getElementById('elementId');
+        element.style.position = 'relative';
+        element.style.top = '50px';
+        element.style.left = '20px';
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Note Saving App</title>
+</head>
+<body>
+  <h1>Note Saving App</h1>
+
+  <input type="text" id="note-input" placeholder="Enter a note">
+  <button id="save-button">Save</button>
+
+  <ul id="note-list"></ul>
+
+  <script>
+    // Retrieve notes from localStorage on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      displayNotes();
+    });
+
+    // Save a new note
+    document.getElementById('save-button').addEventListener('click', function() {
+      const noteInput = document.getElementById('note-input');
+      const noteList = document.getElementById('note-list');
+
+      if (noteInput.value) {
+        // Get existing notes from localStorage
+        let notes = localStorage.getItem('notes');
+        notes = notes ? JSON.parse(notes) : [];
+
+        // Add the new note
+        notes.push(noteInput.value);
+
+        // Update localStorage with the new notes
+        localStorage.setItem('notes', JSON.stringify(notes));
+
+        // Clear the input field
+        noteInput.value = '';
+
+        // Display the updated list of notes
+        displayNotes();
+      }
+    });
+
+    // Delete a note
+    function deleteNote(index) {
+      // Get existing notes from localStorage
+      let notes = localStorage.getItem('notes');
+      notes = notes ? JSON.parse(notes) : [];
+
+      // Remove the note at the given index
+      if (index >= 0 && index < notes.length) {
+        notes.splice(index, 1);
+      }
+
+      // Update localStorage with the updated notes
+      localStorage.setItem('notes', JSON.stringify(notes));
+
+      // Display the updated list of notes
+      displayNotes();
+    }
+
+    // Display the notes in the list
+    function displayNotes() {
+      const noteList = document.getElementById('note-list');
+
+      // Clear the existing list
+      noteList.innerHTML = '';
+
+      // Get the notes from localStorage
+      let notes = localStorage.getItem('notes');
+      notes = notes ? JSON.parse(notes) : [];
+
+      // Add each note to the list
+      notes.forEach(function(note, index) {
+        const listItem = document.createElement('li');
+        listItem.textContent = note;
+
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.addEventListener('click', function() {
+          deleteNote(index);
+        });
+
+        listItem.appendChild(deleteButton);
+        noteList.appendChild(listItem);
+      });
+    }
+  </script>
+</body>
+</html>

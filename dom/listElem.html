@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="listId"></div>
+    <script>
+        const list = document.getElementById('listId');
+        const newItem = document.createElement('li');
+        newItem.textContent = 'New item';
+
+        // Create an ordered list element
+        const orderedList = document.createElement('ol');
+
+        // Append the new list item to the ordered list
+        orderedList.appendChild(newItem);
+
+        // Append the ordered list to the existing list container
+        list.appendChild(orderedList);
+
+// Appending Content
+
+        // const list = document.getElementById('listId');
+        // const newItem = document.createElement('li');
+        // newItem.textContent = 'New item';
+        // list.appendChild(newItem);</script>
+</body>
+</html>

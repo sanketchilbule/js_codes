@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Optional CSS styles */
+    #parentElementId {
+      border: 1px solid black;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Removing All Child Elements of an Element: -->
+  <div id="parentElementId">
+    <p>First Child</p>
+    <p>Second Child</p>
+    <p>Third Child</p>
+  </div>
+  <script>
+    const parentElement = document.getElementById('parentElementId');
+    while (parentElement.firstChild) {
+      parentElement.firstChild.remove();
+    }
+  </script>
+</body>
+</html>
